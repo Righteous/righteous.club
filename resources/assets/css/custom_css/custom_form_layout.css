@@ -1,0 +1,14 @@
+.resize_vertical{
+    resize: vertical;
+}
+
+.has-success .input-group-addon{
+    color: #000;
+}
+
+#mrg_left9{
+    margin-left: -9px;
+}
+.input-group-addon{
+    background-color: #fff;
+}

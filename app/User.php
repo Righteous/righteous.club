@@ -1,29 +1,48 @@
-<?php
+<?php namespace App;
+use Illuminate\Database\Eloquent\Model;
 
-namespace App;
+use Cartalyst\Sentinel\Users\EloquentUser;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
-use Illuminate\Notifications\Notifiable;
-use Illuminate\Foundation\Auth\User as Authenticatable;
+class User extends EloquentUser {
 
-class User extends Authenticatable
-{
-    use Notifiable;
+	use softDeletes;
 
-    /**
-     * The attributes that are mass assignable.
-     *
-     * @var array
-     */
+	/**
+	 * The database table used by the model.
+	 *
+	 * @var string
+	 */
+	protected $table = 'users';
+
+	/**
+	 * The attributes excluded from the model's JSON form.
+	 *
+	 * @var array
+	 */
+	protected $hidden = array('password', 'remember_token');
+	protected $dates = ['deleted_at'];
     protected $fillable = [
-        'name', 'email', 'password',
+        'email',
+        'password',
+        'last_name',
+        'first_name',
+        'permissions',
+        'phone',
+        'dob',
+        'pic',
+        'gender',
+        'phone',
+        'country',
+        'address',
+        'zip',
+        'activated',
+        'facebook',
+        'twitter',
+        'google_plus',
+        'skype',
+        'flickr',
+        'youtube',
     ];
 
-    /**
-     * The attributes that should be hidden for arrays.
-     *
-     * @var array
-     */
-    protected $hidden = [
-        'password', 'remember_token',
-    ];
 }
